@@ -50,7 +50,7 @@
             global::System.Console.WriteLine("ENTER SOURCE FILE PATH (like: \"C:\folder\file.png\")");
             args[0] = global::System.Console.ReadLine().Trim();
             if (string.IsNullOrEmpty(args[0]) || !global::System.IO.File.Exists(args[0])) { return 1; }
-            global::System.Console.WriteLine("ENTER SAVE FILE PATH (like: \"C:\folder\file2.png\")");
+            global::System.Console.WriteLine("ENTER SAVE FILE PATH (like: \"C:\folder\file.txt\")");
             args[1] = global::System.Console.ReadLine().Trim();
             if (string.IsNullOrEmpty(args[1])) { return 1; }
         }
