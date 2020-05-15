@@ -36,4 +36,27 @@
         byte[] fCnt = global::System.IO.File.ReadAllBytes(FilePath);
         return global::ByteToCodeCS.ToCode(ref fCnt, Ident: Ident, MaxPerLine: MaxPerLine, Decorate: Decorate, SkipIdentFirst: SkipIdentFirst);
     }
+
+    internal static int Main(string[] args)
+    {
+        bool ask = false;
+        if (args == null || args.Length != 2)
+        {
+            args = new string[] { "", "" };
+            ask = true;
+        }
+        if (ask)
+        {
+            global::System.Console.WriteLine("ENTER SOURCE FILE PATH (like: \"C:\folder\file.png\")");
+            args[0] = global::System.Console.ReadLine().Trim();
+            if (string.IsNullOrEmpty(args[0]) || !global::System.IO.File.Exists(args[0])) { return 1; }
+            global::System.Console.WriteLine("ENTER SAVE FILE PATH (like: \"C:\folder\file2.png\")");
+            args[1] = global::System.Console.ReadLine().Trim();
+            if (string.IsNullOrEmpty(args[1])) { return 1; }
+        }
+        global::System.IO.File.WriteAllText(args[1], global::ByteToCodeCS.ToCode(args[0], Ident: 0U, MaxPerLine: 0U, Decorate: false, SkipIdentFirst: true));
+        global::System.Console.WriteLine("DONE (at: \"" + args[1] + "\")");
+        global::System.Console.ReadKey();
+        return 0;
+    }
 }
