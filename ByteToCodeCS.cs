@@ -1,4 +1,4 @@
-﻿public static class ByteToCodeCS
+public static class ByteToCodeCS
 {
     public static string ToString(byte b) { if (b > 99) { return b.ToString(); } else if (b > 9) { return "0" + b.ToString(); } else { return "00" + b.ToString(); } }
     public static string ToString(byte b, bool Decorate) { return (Decorate ? global::ByteToCodeCS.ToString(b) : b.ToString()); }
@@ -54,7 +54,7 @@
             args[1] = global::System.Console.ReadLine().Trim();
             if (string.IsNullOrEmpty(args[1])) { return 1; }
         }
-        global::System.IO.File.WriteAllText(args[1], global::ByteToCodeCS.ToCode(args[0], Ident: 0U, MaxPerLine: 0U, Decorate: false, SkipIdentFirst: true));
+        global::System.IO.File.WriteAllText(args[1], global::ByteToCodeCS.ToCode(args[0], Ident: 0U, MaxPerLine: 128U, Decorate: false, SkipIdentFirst: true));
         global::System.Console.WriteLine("DONE (at: \"" + args[1] + "\")");
         global::System.Console.ReadKey();
         return 0;
