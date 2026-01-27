@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <!-- <ProjectGuid>{BE8A04DD-C704-40B2-8AD2-3655B429FAE1}</ProjectGuid> -->
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ByteToCodeCS</RootNamespace>
+    <AssemblyName>ByteToCodeCS</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <OutputPath>bin\</OutputPath>
+    <BaseIntermediateOutputPath>bin\temp\</BaseIntermediateOutputPath>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <SignAssembly>false</SignAssembly>
+    <ProjectGuid>{31EB83C9-EEFF-4B6C-92BD-AB204EC60C08}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ByteToCodeCS</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ByteToCodeCS.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
