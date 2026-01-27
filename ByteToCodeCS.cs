@@ -1,6 +1,6 @@
 public static class ByteToCodeCS
 {
-    public static string ToString(byte b) { if (b > 99) { return b.ToString(); } else if (b > 9) { return "0" + b.ToString(); } else { return "00" + b.ToString(); } }
+    public static string ToString(byte b) { if (b > 99) return b.ToString(); else if (b > 9) return "0" + b.ToString(); else return "00" + b.ToString(); }
     public static string ToString(byte b, bool Decorate) { return (Decorate ? global::ByteToCodeCS.ToString(b) : b.ToString()); }
 
     public static string ToCode(ref byte[] Array, uint Ident = 0U, uint MaxPerLine = 0U, bool Decorate = false, bool SkipIdentFirst = true)
@@ -24,7 +24,12 @@ public static class ByteToCodeCS
                 cnt = 1U;
                 b.AppendLine();
                 b.Append(lBrk);
-            } else { b.Append(' '); }
+            }
+            else
+            {
+                b.Append(' ');
+                cnt++;
+            }
             b.Append(global::ByteToCodeCS.ToString(bEnum.Current, Decorate));
         }
         b.Append(" };");
@@ -47,10 +52,10 @@ public static class ByteToCodeCS
         }
         if (ask)
         {
-            global::System.Console.WriteLine("ENTER SOURCE FILE PATH (like: \"C:\folder\file.png\")");
+            global::System.Console.WriteLine("ENTER SOURCE FILE PATH (like: \"C:\\folder\\file.png\")");
             args[0] = global::System.Console.ReadLine().Trim();
             if (string.IsNullOrEmpty(args[0]) || !global::System.IO.File.Exists(args[0])) { return 1; }
-            global::System.Console.WriteLine("ENTER SAVE FILE PATH (like: \"C:\folder\file.txt\")");
+            global::System.Console.WriteLine("ENTER SAVE FILE PATH (like: \"C:\\folder\\file.txt\")");
             args[1] = global::System.Console.ReadLine().Trim();
             if (string.IsNullOrEmpty(args[1])) { return 1; }
         }
